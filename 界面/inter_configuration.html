@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>监控管理系统</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="10511" />
+ 
+<link href="css/bootstrap.min.css" rel="stylesheet"/>
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/index.css">
+<script src='js/jquery-3.1.1.min.js'></script>
+<script src='js/bootstrap.min.js'></script>
+<script src='js/index.js'></script>
+<script type="text/javascript" src="js/inter_conf.js"></script>
+<style type="text/css">
+.main{
+
+    margin-top: 5%;
+}
+.btnGrop{
+    margin:0 auto; 
+    width: 70%;
+    margin-top: 5%;
+}
+
+</style>
+</head>
+<body>
+
+<!-- page-header start -->
+<div class="page-header">
+        <a class="navbar-brand" href="#"><i class="fa fa-id-card fa-3x"></i></a>
+        <h1 style="display: inline-block;">监控管理系统</h1>
+        <div class="pull-right">
+            <a class="navbar-brand" href="system_information.html"><i class="fa fa-home fa-2x"></i></a>
+            <a class="navbar-brand" href="login.html"><i class="fa fa-sign-out fa-2x"></i></a>
+             <div class="headR">
+                <span>选择语言</span>
+                <select>
+                <option value ="中文">中文</option>
+                <option value ="英语">英语</option>
+                </select>
+             </div>
+        </div>
+</div>
+<!-- page-header end -->
+
+<!-- nav start header -->
+<div class="navbar navbar-default navbar-static-top navbar-inverse">
+    <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                   
+                </div>
+                <div class="navbar-collapse collapse ">
+                    <ul class="nav navbar-nav ">
+                        <li ><a href="system_information.html">状态信息</a></li> 
+                        <li class="active"><a href="inter_configuration.html">基本配置</a></li>
+						<li><a href="device_management.html">设备管理</a></li>
+						<li ><a href="monitor_manager.html"">智能监控</a></li>
+                        <li><a href="aerial function-logon.html">云台管理</a></li>
+                        <li><a href="system_deploy.html">系统管理</a></li>
+                        
+                    </ul>
+                </div>
+    </div>
+</div>
+<!-- nav end header -->
+
+<div class="container-fluid">
+
+    <!-- sidebar start -->
+    <div class="sidebar">
+        <ul class="nav" id="main-menu">
+            <li >
+                <a  class="active-menu"><i class="fa fa-desktop "></i> 网络设置</a>
+            </li>
+            <li>
+                <a  href="time_configuration.html"><i class="fa  fa-calendar"></i> 时间设置</a>
+            </li>
+    
+        </ul>
+    </div>
+    <!-- sidebar end -->
+
+    <!--content start-->
+    <div class="content">
+        <i class="fa fa-angle-double-right fa-2x"></i>
+        <div class="sp" ><b>基本配置->网络设置</b></div>
+        <!-- row start 从这里开始写页面内容-->
+        <div class="row"> 
+        <div  class="col-md-2 col-lg-2"></div>
+        <div class="main col-md-8 col-lg-8">
+            <!-- 主要内容 -->
+            <form class="form-horizontal" id="inter_conf"  method=POST>
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">连接类型</label>
+                <div class="col-sm-10">
+                        <select name="connection_type" id="connection_type">
+                        <option value="0">动态IP</option>
+                        <option value="1">静态IP</option>
+                        <option value="3">PPPoE</option>
+                    </select><br />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="interAd" class="col-sm-2 control-label">网络地址</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" value="<%set_net();%>" id="net_add" name="net_add">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="interAd" class="col-sm-2 control-label">子网掩码</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" value="<%set_net1();%>" id="subnet_mask" name="            subnet_mask">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="interAd" class="col-sm-2 control-label">默认网关</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" value="<%set_net2();%>" id="default_gateway" name="            default_gateway">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="interAd" class="col-sm-2 control-label">主DNS</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control"  value="<%set_net3();%>" id="main_dns" name="main_dns"            >
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="interAd" class="col-sm-2 control-label">从DNS</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" value="<%set_net4();%>" id="other_dns" name="<            other_dns></other_dns>">
+                </div>
+              </div>
+                <div class="btnGrop">
+                <button type="button" name="pres_conf" id="pres_conf"  class="btn btn-danger pull-left">提交</button>
+                <a href="basic configuration-inter configuration.html"><button type="button" class="btn btn-danger pull-right">取消</button></a>
+               </div> 
+            </form>
+
+       
+        </div>  
+        <div  class="col-md-2 col-lg-2"></div>
+        </div>
+        <!-- row start 这里结束-->
+    </div> 
+    <!--content end--> 
+</div>
+
+</body>
+</html>

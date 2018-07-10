@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>监控管理系统</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="10511" />
+ 
+<link href="css/bootstrap.min.css" rel="stylesheet"/>
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/index.css">
+<script src='js/jquery-3.1.1.min.js'></script>
+<script src='js/bootstrap.min.js'></script>
+<script src='js/index.js'></script>
+<script scr='js/time_conf.js'></script>
+<style type="text/css">
+.main{
+    margin-top: 5%;
+}
+.btnGrop{
+    margin:0 auto; 
+    width: 70%;
+    margin-top: 5%;
+}
+
+#checkbox{
+   vertical-align: bottom;
+}
+.time_set{
+    width: 20px;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<!-- page-header start -->
+<div class="page-header">
+        <a class="navbar-brand" href="#"><i class="fa fa-id-card fa-3x"></i></a>
+        <h1 style="display: inline-block;">监控管理系统</h1>
+        <div class="pull-right">
+            <a class="navbar-brand" href="system_information.html"><i class="fa fa-home fa-2x"></i></a>
+             <a class="navbar-brand" href="login.html"><i class="fa fa-sign-out fa-2x"></i></a>
+             <div class="headR">
+                <span>选择语言</span>
+                <select>
+                <option value ="中文">中文</option>
+                <option value ="英语">英语</option>
+                </select>
+             </div>
+        </div>
+</div>
+<!-- page-header end -->
+
+<!-- nav start header -->
+<div class="navbar navbar-default navbar-static-top navbar-inverse">
+    <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                   
+                </div>
+                <div class="navbar-collapse collapse ">
+                    <ul class="nav navbar-nav ">
+                        <li ><a href="system_information.html">状态信息</a></li> 
+                        <li class="active"><a href="inter_configuration.html">基本配置</a></li>
+                        <li><a href="device_management.html">设备管理</a></li>
+                        <li ><a href="monitor_manager.html"">智能监控</a></li>
+                        <li><a href="aerial function-logon.html">云台管理</a></li>
+                        <li><a href="system_deploy.html">系统管理</a></li>
+                        
+                    </ul>
+                </div>
+    </div>
+</div>
+<!-- nav end header -->
+
+<div class="container-fluid">
+
+    <!-- sidebar start -->
+    <div class="sidebar">
+        <ul class="nav" id="main-menu">
+            <li >
+                <a href="inter_configuration.html"><i class="fa fa-desktop "></i> 网络设置</a>
+            </li>
+            <li>
+                <a  class="active-menu"><i class="fa fa-calendar"></i>时间设置</a>
+            </li>
+    
+        </ul>
+    </div>
+    <!-- sidebar end -->
+
+    <!--content start-->
+    <div class="content">
+        <i class="fa fa-angle-double-right fa-2x"></i>
+        <div class="sp" ><b>基本配置->时间设置</b></div>
+        <!-- row start 从这里开始写页面内容-->
+        <div class="row"> 
+        <div  class="col-md-2 col-lg-2"></div>
+        <div class="main col-md-8 col-lg-8">
+            <!-- 主要内容 -->
+            <form class="form-horizontal" id="t_conf" method=POST>
+            <div class="form-group">
+                <label for="checkbox" class="col-sm-3 control-label">时间同步端：</label>
+                <div class="col-sm-9">
+                  <input type="checkbox" name="checkbox" value="" id="checkbox">
+                </div>
+            </div>
+            <div class="form-group">
+              <label for="time_set" class="col-sm-3 control-label">时间设置：</label>
+              <div class="col-sm-7">
+                <input type="date" class="form-control date_set"  name="date_set" id="date_set">
+                <input type="text" class="time_set" name="time_set1" id="time_set1">
+                <span class="hours">时</span>
+                <input type="text" class="time_set" name="time_set2" id="time_set2">
+                <span class="hours">分</span>
+                <input type="text" class="time_set" name="time_set3" id="time_set3">
+                <span class="hours">秒</span>                
+              </div>
+            </div>
+            <div class="form-group">
+                <label for="timezone" class="col-sm-3 control-label set_named">所在时区：</label>
+                <div class="col-sm-9">
+                <select name="timezone" id="timezone">
+                    <option value="0">(GTM-12:00)埃尼威托克，夸贾林岛</option>
+                    <option value="1">(GTM-11:00)中途岛，萨摩亚群岛</option>
+                    <option value="2">(GTM-10:00)夏威夷</option>
+                    <option value="3">(GTM-09:00)阿拉斯加</option>
+                    <option value="4">(GTM-08:00)太平洋时间（美国和加拿大）；蒂华</option>
+                    <option value="5">(GTM-07:00)山地时间（美国和加拿大）；利亚桑那</option>
+                    <option value="6">(GTM-06:00)中部时间（美国和加拿大）；中美洲，墨西哥城</option>
+                    <option value="7">(GTM-05:00)东部时间（美国和加拿大）；波哥达，利马</option>
+                    <option value="8">(GTM-04:00)大西洋时间（加拿大）；加拉加斯，圣地亚哥</option>
+                    <option value="9">(GTM-03:30)纽芬兰</option>
+                    <option value="10">(GTM-03:00)巴西利亚，布宜诺斯艾利斯，乔治敦，格陵兰</option>
+                    <option value="11">(GTM-02:00)中大西洋</option>
+                    <option value="12">(GTM-01:00)佛得角群岛，亚速尔群岛</option>
+                    <option value="13">(GTM)格林威治平时；都柏林，爱丁堡，伦敦，里斯本</option>
+                    <option value="14">(GTM+01:00)阿姆斯特丹，柏林，罗马，斯德哥尔摩，巴黎</option>
+                    <option value="15">(GTM+02:00)开罗，雅典，伊斯坦布尔，明斯克</option>
+                    <option value="16">(GTM+03:00)巴格达，科威特，利雅得，莫斯科，圣彼得堡</option>
+                    <option value="17">(GTM+03:30)德黑兰</option>
+                    <option value="18">(GTM+04:00)阿布扎比，马斯喀特，巴库，第比利斯，埃里温</option>
+                    <option value="19">(GTM+04.30)喀布尔</option>
+                    <option value="20">(GTM+05:00)叶卡捷琳堡，伊斯兰堡，卡拉奇，塔什干</option>
+                    <option value="21">(GTM+05:30)马德拉斯，加尔各答，孟买，新德里</option>
+                    <option value="22">(GTM+05:45)加德满都</option>
+                    <option value="23">(GTM+06:00)阿拉木图，新西伯利亚，阿斯塔纳，达卡</option>
+                    <option value="24">(GTM+06:30)仰光</option>
+                    <option value="25">(GTM+07:00)曼谷，雅加达，河内</option>
+                    <option value="26">(GTM+08:00)北京，重庆，乌鲁木齐，香港特别行政区，台北</option>
+                    <option value="27">(GTM+09:00)东京，大阪，札幌，汉城，雅库茨克</option>
+                    <option value="28">(GTM+09:30)阿德莱德</option>
+                    <option value="29">(GTM+10:00)布里斯班，关岛，堪培拉，墨尔本，悉尼</option>
+                    <option value="30">(GTM+11:00)马加丹，索罗门群岛，新喀里多尼亚</option>
+                    <option value="31">(GTM+12:00)富士，堪察加半岛，马绍尔群岛，惠灵顿</option>
+                    <option value="32">(GTM+13:00)努库阿洛法</option>
+                </select><br />
+                </div>
+            </div>
+            <div class="form-group">
+              <label for="tserver" class="col-sm-3 control-label">时间服务器：</label>
+              <div class="col-sm-7">
+                <input type="text" class="form-control"  name="tserver" id="tserver" value="<%set_t();%>">
+              </div>
+            </div>
+            <div class="btnGrop">
+                <button type="button" class="btn btn-danger pull-left" id="pres_conf" >提交</button>
+                <a href="basic configuration-time configuration.html"><button type="button" class="btn btn-danger pull-right">取消</button></a>
+            </div> 
+            </form>
+
+       
+        </div>  
+        <div  class="col-md-2 col-lg-2"></div>
+        </div>
+        <!-- row start 这里结束-->
+    </div> 
+    <!--content end--> 
+</div>
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>监控管理系统</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="10511" />
+ 
+<link href="css/bootstrap.min.css" rel="stylesheet"/>
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/index.css">
+<script src='js/jquery-3.1.1.min.js'></script>
+<script src='js/bootstrap.min.js'></script>
+<script src='js/index.js'></script>
+<script src='js/user_management.js'></script>
+<style type="text/css">
+.main{
+  
+    margin-top: 5%;
+}
+
+</style>
+<script>
+
+</script>
+</head>
+<body>
+
+<!-- page-header start -->
+<div class="page-header">
+        <a class="navbar-brand" href="#"><i class="fa fa-id-card fa-3x"></i></a>
+        <h1 style="display: inline-block;">监控管理系统</h1>
+        <div class="pull-right">
+            <a class="navbar-brand" href="system_information.html"><i class="fa fa-home fa-2x"></i></a>
+             <a class="navbar-brand" href="login.html"><i class="fa fa-sign-out fa-2x"></i></a>
+             <div class="headR">
+                <span>选择语言</span>
+                <select>
+                <option value ="中文">中文</option>
+                <option value ="英语">英语</option>
+                </select>
+             </div>
+        </div>
+</div>
+<!-- page-header end -->
+
+<!-- nav start header -->
+<div class="navbar navbar-default navbar-static-top navbar-inverse">
+    <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                   
+                </div>
+                <div class="navbar-collapse collapse ">
+                    <ul class="nav navbar-nav ">
+                        <li ><a href="system_information.html">状态信息</a></li> 
+                        <li ><a href="inter_configuration.html">基本配置</a></li>
+                        <li><a href="device_management.html">设备管理</a></li>
+                        <li ><a href="monitor_manager.html"">智能监控</a></li>
+                        <li><a href="aerial function-logon.html">云台管理</a></li>
+                        <li class="active"><a href="system_deploy.html">系统管理</a></li>
+                    </ul>
+                </div>
+    </div>
+</div>
+<!-- nav end header -->
+
+<div class="container-fluid">
+
+    <!-- sidebar start -->
+    <div class="sidebar">
+        <ul class="nav" id="main-menu">
+            <li >
+                <a href="system_deploy.html"><i class="fa fa-gear "></i> 系统配置</a>
+            </li>
+            <li>
+                <a href="user_management.html" class="active-menu"><i class="fa fa-group "></i> 用户管理</a>
+            </li>
+            <li>
+                <a href="backup_restore.html"><i class="fa fa-refresh "></i> 备份恢复</a>
+            </li>
+<!--             <li>
+    <a href="view_log.html"><i class="fa fa-list-alt "></i> 日志设置</a>
+</li> -->
+            <li>
+                <a href="software_update.html"><i class="fa fa-upload "></i> 系统升级</a>
+            </li>
+            <li>
+                <a href="reboot_device.html"><i class="fa fa-undo"></i> 设备重启</a>
+            </li>
+    
+        </ul>
+    </div>
+    <!-- sidebar end -->
+
+    <!--content start-->
+    <div class="content">
+        <i class="fa fa-angle-double-right fa-2x"></i>
+        <div class="sp" ><b>系统管理->用户管理</b></div>
+        <!-- row start 从这里开始写页面内容-->
+        <div class="row"> 
+        <div  class="col-md-2 col-lg-2"></div>
+        <div class="main col-md-8 col-lg-8">
+        <!-- 主要内容 -->
+    <form method="post" id="form_list">
+        <i class="fa fa-circle" style='color:black'></i>
+        <b>添加用户</b><br><br>
+        <button type="button" id="add" class="btn" data-toggle="modal" data-target=".add-modal-lg">点击添加</button>
+        &nbsp; &nbsp;最多只能有五个用户<br><br>
+        <i class="fa fa-circle" style='color:black'></i>
+        <b>用户列表</b><br><br>
+     
+        <table class='table table-responsive table-bordered table-center'>
+            <tr>
+            <th>ID</th>
+            <th>用户名称</th>
+            <th>操作</th>
+            </tr>
+            <tr>
+            <td>1</td>
+            <td>admin</td>
+            <td><button type="button" id="update" class="btn" data-toggle="modal" data-target=".update-modal-lg">修改</button>&nbsp; &nbsp;<button type='button' class="btn" id='delete'>删除</button></td>
+            </tr>
+        </table>
+       <a href="user_management.html"><button type="button" class="btn btn-danger pull-left ">刷新</button></a>
+    </form>
+
+<!--  添加模态框开始 -->
+<!-- Large modal -->
+<div class="modal fade add-modal-lg " id='myModal'  role="dialog" >
+  <div class="modal-dialog modal-lg" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" >添加用户</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label class="control-label">用户ID:</label>
+            <input type="text" class="form-control op_content"  id="identity" name="identity">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">用户名称:</label>
+            <input type="text" class="form-control op_content"   id="username" name="username">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default"  id="save">确认</button>
+        <button type="button" class="btn btn-default"  id="empty">清空</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 添加模态框结束 -->
+<!--  修改模态框开始 -->
+<!-- Large modal -->
+<div class="modal fade update-modal-lg " id='update_myModal'  role="dialog" >
+  <div class="modal-dialog modal-lg" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" >修改用户</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label class="control-label">用户ID:</label>
+            <input type="text" class="form-control update_op_content"  id="identity" name="identity" placeholder="1">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">用户名称:</label>
+            <input type="text" class="form-control update_op_content"   id="username" name="username" placeholder="admin">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default"  id="update_save">确认</button>
+        <button type="button" class="btn btn-default"  id="update_empty">清空</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 修改模态框结束 -->
+        </div> <!-- main end -->
+        <div  class="col-md-2 col-lg-2"></div>
+        </div>
+        <!-- row start 这里结束-->
+    </div> 
+    <!--content end--> 
+</div>
+
+
+</body>
+</html>
